@@ -1,19 +1,24 @@
 {
   "version": "0.1.0",
-  "name": "myprogram",
+  "name": "auction",
   "instructions": [
     {
-      "name": "initialize",
+      "name": "createAuction",
       "accounts": [
         {
-          "name": "baseAccount",
+          "name": "auctionAccount",
           "isMut": true,
           "isSigner": false
         },
         {
-          "name": "creator",
+          "name": "seller",
           "isMut": true,
           "isSigner": true
+        },
+        {
+          "name": "mint",
+          "isMut": true,
+          "isSigner": false
         },
         {
           "name": "systemProgram",
@@ -23,17 +28,61 @@
       ],
       "args": [
         {
+          "name": "price",
+          "type": "u64"
+        },
+        {
           "name": "bump",
           "type": "u8"
         }
       ]
     },
     {
-      "name": "fetch",
+      "name": "buyNft",
       "accounts": [
         {
-          "name": "baseAccount",
+          "name": "auctionAccount",
           "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "mint",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "seller",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "buyer",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "buyerTokenAccount",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "vault",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "vaultTokenAccount",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "tokenProgram",
+          "isMut": false,
           "isSigner": false
         }
       ],
@@ -47,16 +96,24 @@
   ],
   "accounts": [
     {
-      "name": "BaseAccount",
+      "name": "AuctionManager",
       "type": {
         "kind": "struct",
         "fields": [
           {
-            "name": "counter",
-            "type": "u32"
+            "name": "seller",
+            "type": "publicKey"
           },
           {
-            "name": "key",
+            "name": "mint",
+            "type": "publicKey"
+          },
+          {
+            "name": "cost",
+            "type": "u64"
+          },
+          {
+            "name": "buyer",
             "type": "publicKey"
           }
         ]
@@ -64,6 +121,6 @@
     }
   ],
   "metadata": {
-    "address": "9fnWiZpicj8MNHymzYiKpA9GtdxqKeV5p7AYevp9hzWF"
+    "address": "61reie38A5ecZQ45ebeeCcQgBQ82NtA7h59jPLCzx6mK"
   }
 }
