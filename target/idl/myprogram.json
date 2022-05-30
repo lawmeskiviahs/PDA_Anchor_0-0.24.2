@@ -1,24 +1,19 @@
 {
   "version": "0.1.0",
-  "name": "auction",
+  "name": "myprogram",
   "instructions": [
     {
-      "name": "createAuction",
+      "name": "initialize",
       "accounts": [
         {
-          "name": "auctionAccount",
+          "name": "baseAccount",
           "isMut": true,
           "isSigner": false
         },
         {
-          "name": "seller",
+          "name": "creator",
           "isMut": true,
           "isSigner": true
-        },
-        {
-          "name": "mint",
-          "isMut": true,
-          "isSigner": false
         },
         {
           "name": "systemProgram",
@@ -28,9 +23,21 @@
       ],
       "args": [
         {
-          "name": "price",
-          "type": "u64"
-        },
+          "name": "bump",
+          "type": "u8"
+        }
+      ]
+    },
+    {
+      "name": "fetch",
+      "accounts": [
+        {
+          "name": "baseAccount",
+          "isMut": true,
+          "isSigner": false
+        }
+      ],
+      "args": [
         {
           "name": "bump",
           "type": "u8"
@@ -38,46 +45,21 @@
       ]
     },
     {
-      "name": "buyNft",
+      "name": "transferNft",
       "accounts": [
         {
-          "name": "auctionAccount",
-          "isMut": true,
-          "isSigner": false
-        },
-        {
-          "name": "mint",
-          "isMut": true,
-          "isSigner": false
-        },
-        {
-          "name": "seller",
-          "isMut": true,
-          "isSigner": false
-        },
-        {
-          "name": "buyer",
-          "isMut": true,
-          "isSigner": false
-        },
-        {
-          "name": "buyerTokenAccount",
+          "name": "fromAccount",
           "isMut": false,
-          "isSigner": false
+          "isSigner": true
         },
         {
-          "name": "vault",
+          "name": "fromTokenAccount",
           "isMut": true,
           "isSigner": false
         },
         {
-          "name": "vaultTokenAccount",
-          "isMut": false,
-          "isSigner": false
-        },
-        {
-          "name": "systemProgram",
-          "isMut": false,
+          "name": "toTokenAccount",
+          "isMut": true,
           "isSigner": false
         },
         {
@@ -86,34 +68,42 @@
           "isSigner": false
         }
       ],
-      "args": [
+      "args": []
+    },
+    {
+      "name": "transferLamports",
+      "accounts": [
         {
-          "name": "bump",
-          "type": "u8"
+          "name": "fromAccount",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "toAccount",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "systemProgram",
+          "isMut": true,
+          "isSigner": false
         }
-      ]
+      ],
+      "args": []
     }
   ],
   "accounts": [
     {
-      "name": "AuctionManager",
+      "name": "BaseAccount",
       "type": {
         "kind": "struct",
         "fields": [
           {
-            "name": "seller",
-            "type": "publicKey"
+            "name": "counter",
+            "type": "u32"
           },
           {
-            "name": "mint",
-            "type": "publicKey"
-          },
-          {
-            "name": "cost",
-            "type": "u64"
-          },
-          {
-            "name": "buyer",
+            "name": "key",
             "type": "publicKey"
           }
         ]
@@ -121,6 +111,6 @@
     }
   ],
   "metadata": {
-    "address": "61reie38A5ecZQ45ebeeCcQgBQ82NtA7h59jPLCzx6mK"
+    "address": "9fnWiZpicj8MNHymzYiKpA9GtdxqKeV5p7AYevp9hzWF"
   }
 }
