@@ -1,1 +1,1 @@
-Successfully created PDA and stored data in it.
+Nft transfered using program
