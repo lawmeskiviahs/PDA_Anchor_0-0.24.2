@@ -48,22 +48,6 @@ pub mod myprogram {
                 ],
             )?;
 
-            // invoke(
-            //     &spl_token::instruction::transfer(
-            //         ctx.accounts.token_program.key,
-            //         ctx.accounts.from_token_account.key,
-            //         ctx.accounts.to_token_account.key,
-            //         ctx.accounts.from_account.key,
-            //         &[],
-            //         amount,
-            //     )?,
-            //     &[
-            //         ctx.accounts.from_token_account.clone(),
-            //         ctx.accounts.to_token_account.clone(),
-            //         ctx.accounts.from_account.clone(),
-            //     ],
-            // )?;
-
         return Ok(());
     }
 
@@ -110,6 +94,7 @@ pub struct FetchInfo<'info> {
         bump)]
     pub base_account: Account<'info, BaseAccount>,
 }
+
 #[derive(Accounts)]
 pub struct TransferNFT<'info> {
     #[account(signer)]
@@ -127,12 +112,12 @@ pub struct TransferNFT<'info> {
 
 #[derive(Accounts)]
 pub struct TransferSOL<'info> {
-    #[account(mut)]
+    #[account(mut, signer)]
     /// CHECK xyz
     pub from_account: AccountInfo<'info>,
     /// CHECK xyz
-    pub to_account: AccountInfo<'info>,
     #[account(mut)]
+    pub to_account: AccountInfo<'info>,
     /// CHECK xyz
     pub system_program: AccountInfo<'info>,
 }
