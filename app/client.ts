@@ -28,14 +28,13 @@ async function main() {
 
   const fromTokenAccount = new anchor.web3.PublicKey("8QhuyEzMW6fuPjVXSpVr2d4Uneq5D9HKe38wS5zeDLoB");
   const toTokenAccount = new anchor.web3.PublicKey("7bgtStMLU7D5YxqpFNat1gHkzTqQVBzEJrJSyuTRNhcw");
-  
+  const toAccount = new anchor.web3.PublicKey("HAWuxhwmzqt1exoiHmhR2WmzE6N8HAsDvvSqfVRyvwD8");
   const tokenProgram = new anchor.web3.PublicKey("TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA");
 
-    const tx = await program.methods.transferNft().accounts({
+    const tx = await program.methods.transferLamports().accounts({
       fromAccount: wallet.publicKey,
-      fromTokenAccount: fromTokenAccount,
-      toTokenAccount: toTokenAccount,
-      tokenProgram: tokenProgram,
+      toAccount: toAccount,
+      systemProgram: web3.systemProgram,
     }).signers([]).rpc();
 
 }
