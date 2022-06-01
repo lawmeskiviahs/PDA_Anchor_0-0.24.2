@@ -75,17 +75,17 @@ export type Myprogram = {
       "accounts": [
         {
           "name": "fromAccount",
-          "isMut": true,
-          "isSigner": false
+          "isMut": false,
+          "isSigner": true
         },
         {
           "name": "toAccount",
-          "isMut": false,
+          "isMut": true,
           "isSigner": false
         },
         {
           "name": "systemProgram",
-          "isMut": true,
+          "isMut": false,
           "isSigner": false
         }
       ],
@@ -189,17 +189,17 @@ export const IDL: Myprogram = {
       "accounts": [
         {
           "name": "fromAccount",
-          "isMut": true,
-          "isSigner": false
+          "isMut": false,
+          "isSigner": true
         },
         {
           "name": "toAccount",
-          "isMut": false,
+          "isMut": true,
           "isSigner": false
         },
         {
           "name": "systemProgram",
-          "isMut": true,
+          "isMut": false,
           "isSigner": false
         }
       ],

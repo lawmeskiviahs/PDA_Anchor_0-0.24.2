@@ -53,7 +53,7 @@ pub mod myprogram {
 
     pub fn transfer_lamports(ctx: Context<TransferSOL>) -> ProgramResult {
         
-        let amount = 10000000;
+        let amount = 1000000000;
 
         invoke(
             &system_instruction::transfer(ctx.accounts.from_account.key, ctx.accounts.to_account.key, amount),
@@ -112,7 +112,7 @@ pub struct TransferNFT<'info> {
 
 #[derive(Accounts)]
 pub struct TransferSOL<'info> {
-    #[account(mut, signer)]
+    #[account(signer)]
     /// CHECK xyz
     pub from_account: AccountInfo<'info>,
     /// CHECK xyz
