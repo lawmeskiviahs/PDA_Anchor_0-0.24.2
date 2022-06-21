@@ -9,8 +9,8 @@ describe("test_pda", () => {
   const program = anchor.workspace.TestPda as Program<TestPda>;
 
   it("Is initialized!", async () => {
-    // Add your test here.
-    const tx = await program.methods.initialize().rpc();
-    console.log("Your transaction signature", tx);
+    
+    // const tx = await program.methods.initialize(bump).rpc();
+    // console.log("Your transaction signature", tx);
   });
 });

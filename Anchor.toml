@@ -7,7 +7,7 @@ test_pda = "9fnWiZpicj8MNHymzYiKpA9GtdxqKeV5p7AYevp9hzWF"
 url = "https://anchor.projectserum.com"
 
 [provider]
-cluster = "devnet"
+cluster = "localnet"
 wallet = "/home/user/.config/solana/id.json"
 
 [scripts]

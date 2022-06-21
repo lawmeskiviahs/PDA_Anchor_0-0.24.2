@@ -63,7 +63,27 @@
           "isSigner": false
         },
         {
+          "name": "toAccount",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "mint",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
           "name": "tokenProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "associatedTokenProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "systemProgram",
           "isMut": false,
           "isSigner": false
         }
@@ -76,16 +96,16 @@
         {
           "name": "fromAccount",
           "isMut": true,
-          "isSigner": false
+          "isSigner": true
         },
         {
           "name": "toAccount",
-          "isMut": false,
+          "isMut": true,
           "isSigner": false
         },
         {
           "name": "systemProgram",
-          "isMut": true,
+          "isMut": false,
           "isSigner": false
         }
       ],
@@ -111,6 +131,6 @@
     }
   ],
   "metadata": {
-    "address": "9fnWiZpicj8MNHymzYiKpA9GtdxqKeV5p7AYevp9hzWF"
+    "address": "CFNwgx5rdMbDtdBcDztcCzPeviMCtH8D1yFaLVTi1khL"
   }
 }

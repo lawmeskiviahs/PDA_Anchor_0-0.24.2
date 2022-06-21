@@ -1141,6 +1141,17 @@ dependencies = [
 ]
 
 [[package]]
+name = "spl-associated-token-account"
+version = "1.0.5"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "2b013067447a1396303ddfc294f36e3d260a32f8a16c501c295bcdc7de39b490"
+dependencies = [
+ "borsh",
+ "solana-program",
+ "spl-token",
+]
+
+[[package]]
 name = "spl-token"
 version = "3.3.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1186,6 +1197,7 @@ version = "0.1.0"
 dependencies = [
  "anchor-lang",
  "solana-program",
+ "spl-associated-token-account",
  "spl-token",
 ]
 
