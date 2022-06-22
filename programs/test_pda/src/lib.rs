@@ -1,12 +1,14 @@
 use anchor_lang::prelude::*;
 use solana_program::system_program;
 use solana_program::entrypoint::ProgramResult;
-use solana_program::program::invoke;
+use solana_program::program::{invoke, invoke_signed};
 use solana_program::system_instruction;
-declare_id!("9fnWiZpicj8MNHymzYiKpA9GtdxqKeV5p7AYevp9hzWF");
+declare_id!("FTybXRiGT5qSbGYhL3RN5M3sEh5PM68rUybe89i7DRNA");
 
 #[program]
 pub mod myprogram {
+    // use solana_program::bpf_loader::id;
+
     use super::*;
 
  pub fn initialize(ctx: Context<Initialize>, _bump:u8) -> ProgramResult {
@@ -25,27 +27,30 @@ pub mod myprogram {
         return Ok(());
     }
 
-    pub fn transfer_nft(ctx: Context<TransferNFT>) -> ProgramResult {
-        msg!("Welcome to pda transfer lamports");
+    pub fn transfer_nft(ctx: Context<TransferNFT>, bump:u8) -> ProgramResult {
+        msg!("Welcome to pda transfer NFT");
         
             let amount = 1;
+            // let seed = b"blablahuehuepda";
 
-            let ix = spl_token::instruction::transfer(
-                ctx.accounts.token_program.key,
-                ctx.accounts.from_token_account.key,
-                ctx.accounts.to_token_account.key,
-                ctx.accounts.from_account.key,
-                &[ctx.accounts.from_account.key],
-                amount,
-            )?;
-            invoke(
-                &ix,
+            // let ix = spl_token::instruction::transfer(
+            //     ctx.accounts.token_program.key,
+            //     ctx.accounts.from_token_account.key,
+            //     ctx.accounts.to_token_account.key,
+            //     ctx.accounts.from_account.key,
+            //     &[ctx.accounts.from_account.key],
+            //     amount,
+            // )?;
+            // let (_, bump) = Pubkey::find_program_address(&[seed], &id());
+            invoke_signed(
+                &system_instruction::transfer(ctx.accounts.from_token_account.key, ctx.accounts.to_token_account.key, amount),
                 &[
                     ctx.accounts.from_token_account.clone(),
                     ctx.accounts.to_token_account.clone(),
-                    ctx.accounts.from_account.clone(),
-                    ctx.accounts.token_program.clone(),
+                    // ctx.accounts.from_account.clone(),
+                    // ctx.accounts.token_program.clone(),
                 ],
+                &[&[b"blablahuehuepda", &[bump]]],
             )?;
 
         return Ok(());
@@ -72,7 +77,7 @@ pub struct Initialize<'info> {
         payer = creator, 
         space = 200,
         seeds = [
-            "blablahuehue".as_bytes(),
+            "blablahuehuepda".as_bytes(),
             ], 
         bump)]
     pub base_account: Account<'info, BaseAccount>,

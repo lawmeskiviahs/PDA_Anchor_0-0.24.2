@@ -1,7 +1,7 @@
 [features]
 seeds = false
 [programs.devnet]
-test_pda = "9fnWiZpicj8MNHymzYiKpA9GtdxqKeV5p7AYevp9hzWF"
+test_pda = "FTybXRiGT5qSbGYhL3RN5M3sEh5PM68rUybe89i7DRNA"
 
 [registry]
 url = "https://anchor.projectserum.com"

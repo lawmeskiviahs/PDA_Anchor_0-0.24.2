@@ -68,7 +68,12 @@
           "isSigner": false
         }
       ],
-      "args": []
+      "args": [
+        {
+          "name": "bump",
+          "type": "u8"
+        }
+      ]
     },
     {
       "name": "transferLamports",
@@ -109,8 +114,5 @@
         ]
       }
     }
-  ],
-  "metadata": {
-    "address": "9fnWiZpicj8MNHymzYiKpA9GtdxqKeV5p7AYevp9hzWF"
-  }
+  ]
 }

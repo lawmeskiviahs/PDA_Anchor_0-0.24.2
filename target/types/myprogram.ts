@@ -68,7 +68,12 @@ export type Myprogram = {
           "isSigner": false
         }
       ],
-      "args": []
+      "args": [
+        {
+          "name": "bump",
+          "type": "u8"
+        }
+      ]
     },
     {
       "name": "transferLamports",
@@ -182,7 +187,12 @@ export const IDL: Myprogram = {
           "isSigner": false
         }
       ],
-      "args": []
+      "args": [
+        {
+          "name": "bump",
+          "type": "u8"
+        }
+      ]
     },
     {
       "name": "transferLamports",
